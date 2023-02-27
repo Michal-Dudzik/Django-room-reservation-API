@@ -15,16 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from hotel import views
 from rest_framework.urlpatterns import format_suffix_patterns
+from . import views
+
+
+# from hotel.views import RoomList, RoomDetails
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('rooms/', views.room_list),
-    path('rooms/<int:pk>/', views.room_detail),
-    # path('rooms/<int:pk>/bookings/', views.booking_list),
-    # path('rooms/<int:pk>/bookings/<int:pk>/', views.booking_detail)
-
+    path('rooms/', views.list_rooms, name='room-list'),
+    path('rooms/<int:room_id>/', views.edit_room, name='room-detail'),
+    path('rooms/free/', views.list_free_rooms, name='free-room-list'),
+    path('rooms/all/', views.list_all_rooms, name='all-room-list'),
+    path('users/create/', views.create_user, name='user-create'),
+    path('users/edit/', views.update_user, name='user-edit'),
+    path('users/delete/', views.delete_user, name='user-delete'),
+    path('reservations/', views.list_reservations, name='reservation-list'),
+    path('reservations/create/', views.create_reservation, name='reservation-create'),
+    path('reservations/<int:reservation_id>/edit/', views.manage_reservation, name='reservation-edit'),
+    path('reservations/<int:reservation_id>/delete/', views.manage_reservation, name='reservation-delete'),
+    path('rooms/create/', views.create_room, name='room-create'),
+    path('rooms/<int:room_id>/edit/', views.edit_room, name='room-edit'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

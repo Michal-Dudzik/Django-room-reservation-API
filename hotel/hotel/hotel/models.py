@@ -1,21 +1,16 @@
 from django.db import models
-from django.contrib.auth.models import User, AbstractUser
+from django.contrib.auth.models import User
 
 class Room(models.Model):
-    number = models.IntegerField()
+    number = models.CharField(max_length=10)
     floor = models.IntegerField()
-    description = models.CharField(max_length=500)
+    description = models.TextField()
 
-    def __str__(self):
-        return str(self.number) + ' - ' + str(self.floor) + ' - ' + self.description
-    
 class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    date = models.DateField()
+    check_in = models.DateField()
+    check_out = models.DateField()
 
-    def __str__(self):
-        return self.user + ' - ' + self.room + ' - ' + self.date
-    
-class User(AbstractUser):
-    pass
+    class Meta:
+        unique_together = ('room', 'check_in')
