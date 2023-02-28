@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 from .models import Room, Reservation
 from .serializers import RoomSerializer, ReservationSerializer
 
+# User management
 @api_view(['POST'])
 def create_user(request):
     data = request.data
@@ -31,6 +32,7 @@ def delete_user(request):
     request.user.delete()
     return Response({'success': 'User deleted'})
 
+# Room and reservation status
 @api_view(['GET'])
 def list_free_rooms(request):
     check_in = request.GET.get('check_in')
@@ -72,6 +74,7 @@ def list_reservations(request):
     serializer = ReservationSerializer(reservations, many=True)
     return Response(serializer.data)
 
+# Reservation management
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def create_reservation(request):
@@ -117,6 +120,7 @@ def manage_reservation(request, reservation_id):
         reservation.delete()
         return Response({'success': 'Reservation deleted'})
 
+# Room management
 @api_view(['POST'])
 @permission_classes([IsAdminUser])
 def create_room(request):
@@ -125,6 +129,13 @@ def create_room(request):
         serializer.save()
         return Response(serializer.data, status=201)
     return Response(serializer.errors, status=400)
+
+@api_view(['DELETE'])
+@permission_classes([IsAdminUser])
+def delete_room(request, room_id):
+    room = get_object_or_404(Room, id=room_id)
+    room.delete()
+    return Response({'success': 'Room deleted'})
 
 @api_view(['PUT'])
 @permission_classes([IsAdminUser])
@@ -141,3 +152,12 @@ def list_rooms(request):
     rooms = Room.objects.all()
     serializer = RoomSerializer(rooms, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def get_room(request, room_id):
+    room = get_object_or_404(Room, id=room_id)
+    serializer = RoomSerializer(room)
+    return Response(serializer.data)
+
+
+# rewrite some views for readability and to avoid repetition

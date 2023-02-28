@@ -12,5 +12,5 @@ class Reservation(models.Model):
     check_in = models.DateField()
     check_out = models.DateField()
 
-    class Meta:
-        unique_together = ('room', 'check_in')
+    # class Meta:
+    #     unique_together = ('room', 'check_in')
