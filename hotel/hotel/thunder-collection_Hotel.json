@@ -1,0 +1,390 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Hotel",
+    "dateExported": "2023-03-02T01:58:48.406Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "e21d47c1-9ee8-466a-9ad0-d45a52ce0b00",
+            "name": "Room",
+            "containerId": "",
+            "created": "2023-02-27T22:23:16.836Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "87251c11-f6f9-4301-b074-9ee98fdb8067",
+            "name": "Reservation",
+            "containerId": "",
+            "created": "2023-02-27T22:23:38.477Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "7f1c15dc-565c-4a53-a73d-c53435c4fd64",
+            "name": "User",
+            "containerId": "",
+            "created": "2023-02-27T22:23:42.568Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "1986c122-e231-4dd1-85cb-7b8cc091d6e1",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "e21d47c1-9ee8-466a-9ad0-d45a52ce0b00",
+            "name": "get list of rooms",
+            "url": "http://localhost:8000/rooms",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-02-27T21:02:30.979Z",
+            "modified": "2023-02-27T22:23:19.066Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "217e0329-ab00-4b02-9790-0599cdf475df",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "7f1c15dc-565c-4a53-a73d-c53435c4fd64",
+            "name": "create new user",
+            "url": "localhost:8000/users/",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-02-27T22:07:02.442Z",
+            "modified": "2023-03-02T01:49:51.260Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"username\": \"mike\",\n    \"email\": \"kon@mike.com\",\n    \"password\": \"mike\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f0a17b23-2e4a-4bf2-86d3-04a44b753650",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "87251c11-f6f9-4301-b074-9ee98fdb8067",
+            "name": "get list of reservations",
+            "url": "http://localhost:8000/reservations/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-02-27T22:21:51.385Z",
+            "modified": "2023-02-28T01:14:17.407Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "admin",
+                    "password": "admin"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "24dbc748-e866-4a49-9031-3566bd22488c",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "87251c11-f6f9-4301-b074-9ee98fdb8067",
+            "name": "create reservation",
+            "url": "http://localhost:8000/reservations/",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-02-27T22:22:44.415Z",
+            "modified": "2023-03-02T01:47:06.213Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"user\": 3,\n    \"room\": 5,\n    \"check_in\": \"2023-03-05\",\n    \"check_out\": \"2023-03-05\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "admin",
+                    "password": "admin"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "26204956-2d5f-40a0-9f9d-32c64ea4c260",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "7f1c15dc-565c-4a53-a73d-c53435c4fd64",
+            "name": "get info about user",
+            "url": "localhost:8000/users/manage/11/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-03-02T01:52:07.538Z",
+            "modified": "2023-03-02T01:52:32.304Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "714a4bb8-c0ca-452f-b5e6-307bfcb89aeb",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "7f1c15dc-565c-4a53-a73d-c53435c4fd64",
+            "name": "update user ",
+            "url": "localhost:8000/users/manage/11/",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-02-27T22:12:54.230Z",
+            "modified": "2023-03-02T01:51:41.734Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"Mike\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "mike",
+                    "password": "mike"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "ef8a0ef2-2132-4af5-8453-fdd9c1cf1f6d",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "e21d47c1-9ee8-466a-9ad0-d45a52ce0b00",
+            "name": "add new room",
+            "url": "http://localhost:8000/rooms/",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-02-27T22:17:01.914Z",
+            "modified": "2023-03-02T01:40:55.696Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"number\": \"99\",\n  \"floor\": 4,\n  \"description\":\"ugh where was it again?\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "admin",
+                    "password": "admin"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "40a75a06-4db7-4efb-8aaa-337337a7e713",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "7f1c15dc-565c-4a53-a73d-c53435c4fd64",
+            "name": "delete user",
+            "url": "localhost:8000/users/delete/",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-02-27T22:13:18.749Z",
+            "modified": "2023-02-28T00:49:21.646Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user",
+                    "password": "user"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "764697bf-c9f5-4910-862c-aefecf9415cf",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "e21d47c1-9ee8-466a-9ad0-d45a52ce0b00",
+            "name": "update room",
+            "url": "http://localhost:8000/rooms/manage/2/",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-02-27T22:19:12.567Z",
+            "modified": "2023-03-02T01:41:37.537Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"number\": \"2\",\n  \"floor\": 1,\n  \"description\": \"no longer Main Hall\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "admin",
+                    "password": "admin"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "a7da77de-dfb6-4d4a-a361-46c7c9fddafb",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "e21d47c1-9ee8-466a-9ad0-d45a52ce0b00",
+            "name": "delete room",
+            "url": "http://localhost:8000/rooms/manage/2/",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-02-27T22:21:05.580Z",
+            "modified": "2023-03-02T01:41:43.983Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "9e537766-3a0b-411f-b702-dc6b0432198d",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "e21d47c1-9ee8-466a-9ad0-d45a52ce0b00",
+            "name": "get info about a room",
+            "url": "http://localhost:8000/rooms/manage/3/",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2023-02-27T23:40:11.912Z",
+            "modified": "2023-03-02T01:42:25.107Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "admin",
+                    "password": "admin"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "9ffe7a47-8b51-42cf-8b1f-f87ab520cb95",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "e21d47c1-9ee8-466a-9ad0-d45a52ce0b00",
+            "name": "get list free rooms on a given date",
+            "url": "http://localhost:8000/rooms/free/?check_in=2023-03-01",
+            "method": "GET",
+            "sortNum": 165000,
+            "created": "2023-02-27T23:34:01.430Z",
+            "modified": "2023-03-02T01:43:06.635Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "check_in",
+                    "value": "2023-03-01",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "48d743f5-8b56-4727-80b4-19ab94d20669",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "e21d47c1-9ee8-466a-9ad0-d45a52ce0b00",
+            "name": "get all of the rooms and their statuses in a given period",
+            "url": "http://localhost:8000/rooms/status/?check_in=2023-03-01&check_out=2023-03-05",
+            "method": "GET",
+            "sortNum": 170000,
+            "created": "2023-02-28T00:51:52.892Z",
+            "modified": "2023-03-02T01:43:32.649Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "check_in",
+                    "value": "2023-03-01",
+                    "isPath": false
+                },
+                {
+                    "name": "check_out",
+                    "value": "2023-03-05",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "admin",
+                    "password": "admin"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "6368741e-7137-4f14-9062-6a3d958644c5",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "87251c11-f6f9-4301-b074-9ee98fdb8067",
+            "name": "edit reservation",
+            "url": "http://localhost:8000/reservations/manage/5/",
+            "method": "PUT",
+            "sortNum": 180000,
+            "created": "2023-02-28T00:57:05.915Z",
+            "modified": "2023-03-02T01:48:50.293Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"check_in\": \"2023-03-06\",\n    \"check_out\": \"2023-03-06\",\n    \"user\": 8,\n    \"room\": 5\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "admin",
+                    "password": "admin"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "1f6f7db4-36bf-4fd7-b46a-125bcad9f3db",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "87251c11-f6f9-4301-b074-9ee98fdb8067",
+            "name": "delete reservation",
+            "url": "http://localhost:8000/reservations/manage/4/",
+            "method": "DELETE",
+            "sortNum": 190000,
+            "created": "2023-02-28T00:59:39.345Z",
+            "modified": "2023-03-02T01:45:27.623Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "admin",
+                    "password": "admin"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "894b062f-ab7f-4fd0-8395-eefe70a1d75d",
+            "colId": "6f44eb33-d689-4165-a57d-12ab68ad1262",
+            "containerId": "87251c11-f6f9-4301-b074-9ee98fdb8067",
+            "name": "check status of all the rooms in a given period",
+            "url": "http://localhost:8000/rooms/status/?check_in=2023-03-01&check_out=2023-03-05",
+            "method": "GET",
+            "sortNum": 200000,
+            "created": "2023-03-02T01:40:01.130Z",
+            "modified": "2023-03-02T01:40:01.130Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "check_in",
+                    "value": "2023-03-01",
+                    "isPath": false
+                },
+                {
+                    "name": "check_out",
+                    "value": "2023-03-05",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "admin",
+                    "password": "admin"
+                }
+            },
+            "tests": []
+        }
+    ]
+}

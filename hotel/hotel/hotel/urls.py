@@ -22,29 +22,16 @@ from . import views
 # from hotel.views import RoomList, RoomDetails
 
 urlpatterns = [
-    path('', views.list_reservations, name='reservation-list'),
+    path('', views.rooms, name='rooms'),
     path('admin/', admin.site.urls),
-
-    path('rooms/', views.list_rooms, name='room-list'),
-    path('rooms/create/', views.create_room, name='room-create'),
-    path('rooms/<int:room_id>/edit/', views.edit_room, name='room-edit'),
-    path('rooms/<int:room_id>/delete/', views.delete_room, name='room-delete'),
-    path('rooms/<int:room_id>/', views.get_room, name='room-detail'),
-    # nie za bardzo chce działać
-    path('rooms/free/', views.list_free_rooms, name='free-room-list'),
-    path('rooms/all/', views.list_all_rooms, name='all-room-list'),
-    # 
-
-    path('users/create/', views.create_user, name='user-create'),
-    path('users/edit/', views.update_user, name='user-edit'),
-    path('users/delete/', views.delete_user, name='user-delete'),
-    
-    path('reservations/', views.list_reservations, name='reservation-list'),
-    path('reservations/create/', views.create_reservation, name='reservation-create'),
-    # nie za bardzo chce działać
-    path('reservations/<int:reservation_id>/edit/', views.manage_reservation, name='reservation-edit'),
-    path('reservations/<int:reservation_id>/delete/', views.manage_reservation, name='reservation-delete'),
-    # 
+    path('users/', views.users, name='users'),
+    path('users/manage/<int:user_id>/', views.users_manage, name='users-manage'),
+    path('rooms/', views.rooms, name='rooms'),
+    path('rooms/manage/<int:room_id>/', views.rooms_manage, name='rooms-manage'),
+    path('reservations/', views.reservations, name='reservations'),
+    path('reservations/manage/<int:reservation_id>/', views.reservations_manage, name='reservations-manage'),
+    path('rooms/free/', views.free_rooms, name='free-rooms'),
+    path('rooms/status/', views.rooms_status, name='rooms-status'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
